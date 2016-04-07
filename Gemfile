@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "sinatra"
 gem "sqlite3"
-qem "activerecord"
+gem "activerecord"
 gem "sinatra-activerecord"
 gem "sinatra-contrib"
 
