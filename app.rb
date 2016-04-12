@@ -16,6 +16,10 @@ class Barber < ActiveRecord::Base
 
 end
 
+class Contact < ActiveRecord::Base
+
+end	
+
 before do
 	@barbers = Barber.all
 end
@@ -39,12 +43,39 @@ post '/visit' do
 	@barber = params[:master]
 	@color  = params[:color]
 
-	Client.create :name => @username, :phone => @phone, :datestamp => @datetime, :barber => @barber, :color => @color
-	
-		
-	
-	erb "#{@username}, #{@phone},#{@datetime}, #{@barber}, #{@color}"
+	# Client.create :name => @username, :phone => @phone, :datestamp => @datetime, :barber => @barber, :color => @color
+	c = Client.new
+	c.name = @username
+	c.phone = @phone
+	c.datestamp = @datetime
+	c.barber = @barber
+	c.color = @color	
+	c.save
+	 # erb "#{@username}, #{@phone},#{@datetime}, #{@barber}, #{@color}"
+	 erb "Вы записались"
 end
 get '/contacts' do
-  "Hello World"
+ 	erb :contacts
 end
+
+post '/contacts' do
+	@email = params[:email]
+	@text  = params[:text]
+
+	 Contact.create :email => @email, :text => @text
+	
+
+	erb :contacts
+	# erb "#{@email}, #{@text}"
+end
+
+
+
+
+
+
+
+
+
+
+
