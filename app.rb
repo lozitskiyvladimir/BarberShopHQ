@@ -5,7 +5,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
-
+#test ungit string
 set :database, "sqlite3:barbershop.db"
 
 class Client < ActiveRecord::Base
