@@ -63,3 +63,7 @@ post '/contacts' do
 	erb :contacts
 	# erb "#{@email}, #{@text}"
 end
+
+get '/barber/:id' do
+	erb :barber
+end
